@@ -6,13 +6,32 @@ models:
     end_date: datetime
     status: string
     region: string
-    venue_id: unsignedInteger
+    venue_id: unsignedInteger nullable
+    relationships:
+      belongsTo: Venue
+      belongsToMany: Speaker, Talk
 
   Venue:
     name: string
     city: string
     country: string
     postal_code: string
+    relationships:
+      hasMany: Conference
 
-controllers:
-  # ...
+  Speaker:
+    name: string
+    email: string
+    bio: text
+    x_handle: string
+    relationships:
+      belongsToMany: Conference
+
+  Talk:
+    title: string
+    abstract: text
+    speaker_id: unsignedInteger
+    relationships:
+      belongsTo: Speaker
+      belongsToMany: Conference
+
