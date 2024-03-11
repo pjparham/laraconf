@@ -1,0 +1,18 @@
+models:
+  Conference:
+    name: string
+    description: string
+    start_date: datetime
+    end_date: datetime
+    status: string
+    region: string
+    venue_id: unsignedInteger
+
+  Venue:
+    name: string
+    city: string
+    country: string
+    postal_code: string
+
+controllers:
+  # ...
